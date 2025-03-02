@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Natural Bonds Meta - Pure, Sustainable Skincare for Your Natural Glow">
-  <title>Products | Natural Bonds META</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Natural Bonds META</title>
   <style>
     /* General Styles */
     body {
@@ -119,37 +118,47 @@
     <a href="https://nbmeta.pages.dev/contact">Contact</a>
   </nav>
 
+  <!-- Hero Section -->
+  <section class="hero" style="background: linear-gradient(to bottom, #2E8B57, #3E2723), url('https://1t2.pages.dev/assets-main/nbmeta/hero0.png'); background-size: cover; background-position: center; color: #ffffff; text-align: center; padding: 100px 20px;">
+    <h2>Discover the Power of Nature</h2>
+    <p>Our skincare products are crafted with natural ingredients to nourish and rejuvenate your skin.</p>
+    <a href="https://nbmeta.pages.dev/products/index.html" class="btn">Shop Now</a>
+  </section>
+
   <!-- Main Content -->
   <section class="content">
-    <h3>Shop at Natural Bonds META</h3>
-    <p>Discover what we have to offer to you today...</p>
-    <div class="container">
-      <div class="row">
-        <!-- Example product card -->
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img src="path/to/image.jpg" class="card-img-top" alt="Product Name">
-              <div class="card-body">
-                <p class="card-text">Product Name</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="https://nbmeta.com/products/links/product" class="btn btn-sm btn-outline-secondary">View</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <!-- Repeat for each product -->
-      </div>
-    </div>
+    <h3>Welcome to Natural Bonds META</h3>
+    <p>Welcome to our natural store, that is full with some of the best skincare products around!*</p>
+    <!-- Dynamic Content will be injected here -->
+    <div id="dynamic-content"></div>
   </section>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Natural Bonds META. All rights reserved.</p>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Function to fetch and inject content from the config file
+    function loadDynamicContent() {
+      // Get the hash from the URL
+      const hash = window.location.hash.substring(1); // Remove the '#' symbol
+      if (!hash) return; // Exit if no hash is present
+
+      // Fetch the content from the URL in the hash
+      fetch(hash)
+        .then(response => response.text())
+        .then(data => {
+          // Inject the fetched content into the dynamic-content div
+          document.getElementById('dynamic-content').innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error loading dynamic content:', error);
+        });
+    }
+
+    // Call the function when the page loads
+    window.onload = loadDynamicContent;
+  </script>
 </body>
 </html>
