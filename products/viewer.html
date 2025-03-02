@@ -139,7 +139,7 @@
   </footer>
 
   <script>
-    // Function to fetch and inject content from the config file
+    // Function to fetch and inject content from the external file
     async function loadDynamicContent() {
       // Get the hash from the URL
       const hash = window.location.hash.substring(1); // Remove the '#' symbol
@@ -155,15 +155,20 @@
           console.log('Fetched content:', data); // Debugging: Log the fetched content
 
           // Inject the fetched content into the dynamic-content div
-          document.getElementById('dynamic-content').innerHTML = data;
+          const dynamicContentDiv = document.getElementById('dynamic-content');
+          dynamicContentDiv.innerHTML = data;
 
-          // Manually load the Payhip script if it exists in the fetched content
-          const payhipScriptSrc = 'https://payhip.com/embed-page.js?v=24u68984';
-          const scriptElement = document.createElement('script');
-          scriptElement.src = payhipScriptSrc;
-          scriptElement.type = 'text/javascript';
-          document.body.appendChild(scriptElement);
-          console.log('Payhip script manually injected.');
+          // Execute any scripts in the fetched content
+          const scripts = dynamicContentDiv.getElementsByTagName('script');
+          for (let script of scripts) {
+            const newScript = document.createElement('script');
+            if (script.src) {
+              newScript.src = script.src; // Load external scripts
+            } else {
+              newScript.textContent = script.textContent; // Execute inline scripts
+            }
+            document.body.appendChild(newScript);
+          }
         } catch (error) {
           console.error('Error loading dynamic content:', error);
           document.getElementById('dynamic-content').innerHTML = '<p>Error loading content. Please try again later.</p>';
