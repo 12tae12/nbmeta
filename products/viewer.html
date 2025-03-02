@@ -140,21 +140,54 @@
 
   <script>
     // Function to fetch and inject content from the config file
-    function loadDynamicContent() {
+    async function loadDynamicContent() {
       // Get the hash from the URL
       const hash = window.location.hash.substring(1); // Remove the '#' symbol
-      if (!hash) return; // Exit if no hash is present
+      console.log('Hash:', hash); // Debugging: Log the hash
 
-      // Fetch the content from the URL in the hash
-      fetch(hash)
-        .then(response => response.text())
-        .then(data => {
+      if (hash) {
+        // If a hash is present, fetch and inject the content
+        try {
+          console.log('Fetching content from:', hash); // Debugging: Log the fetch URL
+          const response = await fetch(hash);
+          if (!response.ok) throw new Error('Failed to fetch content');
+          const data = await response.text();
+          console.log('Fetched content:', data); // Debugging: Log the fetched content
+
           // Inject the fetched content into the dynamic-content div
           document.getElementById('dynamic-content').innerHTML = data;
-        })
-        .catch(error => {
+
+          // Manually load the Payhip script if it exists in the fetched content
+          const payhipScriptSrc = 'https://payhip.com/embed-page.js?v=24u68984';
+          const scriptElement = document.createElement('script');
+          scriptElement.src = payhipScriptSrc;
+          scriptElement.type = 'text/javascript';
+          document.body.appendChild(scriptElement);
+          console.log('Payhip script manually injected.');
+        } catch (error) {
           console.error('Error loading dynamic content:', error);
-        });
+          document.getElementById('dynamic-content').innerHTML = '<p>Error loading content. Please try again later.</p>';
+        }
+      } else {
+        // If no hash is present, fetch a random link from the links.txt file
+        try {
+          const linksResponse = await fetch('https://nbmeta.pages.dev/products/links.txt');
+          if (!linksResponse.ok) throw new Error('Failed to fetch links');
+          const linksText = await linksResponse.text();
+          const links = linksText.split('\n').filter(link => link.trim() !== ''); // Split by newline and remove empty lines
+
+          if (links.length > 0) {
+            // Pick a random link from the list
+            const randomLink = links[Math.floor(Math.random() * links.length)];
+            window.location.href = `#${randomLink}`; // Redirect to the random link
+          } else {
+            document.getElementById('dynamic-content').innerHTML = '<p>No product links available.</p>';
+          }
+        } catch (error) {
+          console.error('Error fetching random link:', error);
+          document.getElementById('dynamic-content').innerHTML = '<p>Error loading product links. Please try again later.</p>';
+        }
+      }
     }
 
     // Call the function when the page loads
