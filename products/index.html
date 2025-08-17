@@ -255,21 +255,37 @@ function renderProducts() {
   const grid = document.getElementById('productGrid');
   grid.innerHTML = '';
   products.forEach(product => {
-    grid.innerHTML += `
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
-          <img src="${product.img}" class="card-img-top" alt="${product.alt}">
-          <div class="card-body">
-            <p class="card-text">${product.name}</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <a href="${product.link}" class="btn btn-sm btn-outline-secondary">View</a>
-              </div>
+    const card = document.createElement('div');
+    card.className = 'col-md-4 mb-4';
+    card.innerHTML = `
+      <div class="card shadow-sm">
+        <div class="img-container" style="position:relative;height:200px;display:flex;align-items:center;justify-content:center;">
+          <div class="spinner-border text-success" role="status" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);" aria-label="Loading image..."></div>
+          <img src="${product.img}" class="card-img-top" alt="${product.alt}" style="display:none;height:200px;object-fit:cover;">
+        </div>
+        <div class="card-body">
+          <p class="card-text">${product.name}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href="${product.link}" class="btn btn-sm btn-outline-secondary">View</a>
             </div>
           </div>
         </div>
       </div>
     `;
+    grid.appendChild(card);
+    // Image loading logic
+    const img = card.querySelector('img');
+    const spinner = card.querySelector('.spinner-border');
+    img.onload = function() {
+      spinner.style.display = 'none';
+      img.style.display = 'block';
+    };
+    img.onerror = function() {
+      spinner.classList.remove('text-success');
+      spinner.classList.add('text-danger');
+      spinner.setAttribute('aria-label', 'Image failed to load');
+    };
   });
 }
 renderProducts();
