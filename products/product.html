@@ -85,18 +85,7 @@
       color: #3E2723;
       font-weight: bold;
       margin-top: 10px;
-    }
-
-    .payhip-add-to-cart-button {
-      background-color: #2E8B57 !important;
-      color: #ffffff !important;
-      padding: 12px 30px !important;
-      font-size: 1.2rem !important;
-      font-weight: bold !important;
-      border-radius: 5px !important;
-      margin-top: 20px !important;
-      transition: background-color 0.3s ease;
-      display: inline-block !important;
+      margin-bottom: 20px;
     }
 
     .payhip-add-to-cart-button:hover {
@@ -221,8 +210,9 @@
         document.getElementById('productImage').alt = product.name;
         
         // Create Payhip button
-        const payhipButtonHtml = `<a href="https://payhip.com/b/${product.id}" class="payhip-add-to-cart-button" data-theme="green" data-product="${product.id}">Add To Cart</a>`;
-        document.getElementById('payhipButton').innerHTML = payhipButtonHtml;
+        const payhipButton = document.createElement('div');
+        payhipButton.innerHTML = `<a href="#" class="payhip-buy-button" data-product="${product.id}">Buy now</a>`;
+        document.getElementById('payhipButton').appendChild(payhipButton);
         
         // Show the content
         loading.style.display = 'none';
