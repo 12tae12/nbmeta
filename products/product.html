@@ -220,7 +220,7 @@
         document.getElementById('productImage').src = product.image;
         document.getElementById('productImage').alt = product.name;
         
-        // Create Payhip button wrapper
+        // Create Payhip button
         const payhipButtonHtml = `<a href="https://payhip.com/b/${product.id}" class="payhip-add-to-cart-button" data-theme="green" data-product="${product.id}">Add To Cart</a>`;
         document.getElementById('payhipButton').innerHTML = payhipButtonHtml;
         
