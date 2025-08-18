@@ -220,14 +220,9 @@
         document.getElementById('productImage').src = product.image;
         document.getElementById('productImage').alt = product.name;
         
-        // Create Payhip button
-        const payhipButton = document.createElement('a');
-        payhipButton.href = `https://payhip.com/b/${product.id}`;
-        payhipButton.className = 'payhip-add-to-cart-button';
-        payhipButton.setAttribute('data-theme', 'green');
-        payhipButton.setAttribute('data-product', product.id);
-        payhipButton.textContent = 'Add To Cart';
-        document.getElementById('payhipButton').appendChild(payhipButton);
+        // Create Payhip button wrapper
+        const payhipButtonHtml = `<a href="https://payhip.com/b/${product.id}" class="payhip-add-to-cart-button" data-theme="green" data-product="${product.id}">Add To Cart</a>`;
+        document.getElementById('payhipButton').innerHTML = payhipButtonHtml;
         
         // Show the content
         loading.style.display = 'none';
