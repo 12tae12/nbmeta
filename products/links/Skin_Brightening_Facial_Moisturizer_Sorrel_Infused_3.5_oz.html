@@ -4,22 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Natural Bonds Meta - Pure, Sustainable Skincare for Your Natural Glow">
-  <title>Natural Bonds META</title>
+  <title>Product | Natural Bonds META</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <script type="text/javascript" src="https://payhip.com/payhip.js"></script><script type="text/javascript">
+     var PayhipConfig = {
+        enableCart: true
+    };</script>
+    
   <style>
     /* General Styles */
     body {
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #ffffff; /* White */
-      color: #333333; /* Dark Gray */
+      background-color: #ffffff;
+      color: #333333;
       line-height: 1.6;
     }
 
     /* Header */
     header {
-      background-color: #2E8B57; /* Green */
-      color: #ffffff; /* White */
+      background-color: #2E8B57;
+      color: #ffffff;
       padding: 20px 0;
       text-align: center;
     }
@@ -36,42 +43,111 @@
 
     /* Navigation */
     nav {
-      background-color: #3E2723; /* Dark Brown */
+      background-color: #3E2723;
       padding: 10px 0;
       text-align: center;
     }
 
     nav a {
-      color: #ffffff; /* White */
+      color: #ffffff;
       text-decoration: none;
       margin: 0 15px;
       font-size: 1.1rem;
     }
 
     nav a:hover {
-      color: #D2B48C; /* Light Brown */
+      color: #D2B48C;
     }
 
     /* Main Content */
-    .content {
-      padding: 40px 20px;
+    .product-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .product-image-carousel {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .product-info h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #2E8B57;
+    }
+
+    .product-info .price {
+      font-size: 1.8rem;
+      color: #3E2723;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .quantity-control label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .quantity-input {
+      width: 60px;
       text-align: center;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
     }
 
-    .content h3 {
-      color: #2E8B57; /* Green */
-      font-size: 2rem;
+    .quantity-btn {
+      background-color: #f8f9fa;
+      border: 1px solid #ced4da;
+      color: #333;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      font-size: 1.2rem;
+      border-radius: 5px;
+    }
+    
+    /* Payhip Button Styles to match theme */
+    .payhip-add-to-cart-button {
+      background-color: #2E8B57 !important;
+      color: #ffffff !important;
+      padding: 12px 30px !important;
+      font-size: 1.2rem !important;
+      font-weight: bold !important;
+      border-radius: 5px !important;
+      margin-top: 20px !important;
+      transition: background-color 0.3s ease;
+      display: inline-block !important;
     }
 
-    .content p {
-      max-width: 800px;
-      margin: 20px auto;
+    .payhip-add-to-cart-button:hover {
+      background-color: #3E2723 !important;
+      color: #ffffff !important;
+    }
+    
+    .product-description {
+      margin-top: 30px;
+      border-top: 1px solid #eeeeee;
+      padding-top: 20px;
+    }
+
+    .share-links a {
+        color: #333333;
+        font-size: 1.5rem;
+        margin-right: 15px;
     }
 
     /* Footer */
     footer {
-      background-color: #3E2723; /* Dark Brown */
-      color: #ffffff; /* White */
+      background-color: #3E2723;
+      color: #ffffff;
       text-align: center;
       padding: 20px 0;
     }
@@ -79,38 +155,21 @@
     footer p {
       margin: 0;
     }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      background-color: #2E8B57; /* Green */
-      color: #ffffff; /* White */
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 20px;
-    }
-
-    .btn:hover {
-      background-color: #3E2723; /* Dark Brown */
-    }
   </style>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "qhj6tg3pzo");
+    })(window, document, "clarity", "qhj6tg3pzo");
 </script>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <h1>Natural Bonds Meta</h1>
     <p>Pure, Sustainable Skincare for Your Natural Glow</p>
   </header>
 
-  <!-- Navigation -->
   <nav>
     <a href="https://nbmeta.pages.dev/">Home</a>
     <a href="https://nbmeta.pages.dev/about">About Us</a>
@@ -118,14 +177,41 @@
     <a href="https://nbmeta.pages.dev/contact">Contact</a>
   </nav>
 
-  <!-- Main Content -->
-  <section class="content">
-    <div class="payhip-embed-page" data-key="PWXEG">...</div><script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68984"></script>
-  </section>
+  <main class="container product-container">
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <div class="product-image-carousel">
+          <img src="https://nbmeta.pages.dev/assets/Skin_Brightening_Facial_Moisturizer_Sorrel_Infused_3.5_oz.png" class="d-block w-100" alt="Product">
+        </div>
+      </div>
 
-  <!-- Footer -->
+      <div class="col-lg-6 product-info">
+        <h1>Skin Brightening Facial Moisturizer (sorrel infused) 3.5 oz</h1>
+        <div class="price">$14.99</div>
+
+        <a href="https://payhip.com/b/PWXEG" class="payhip-add-to-cart-button" data-theme="green" data-product="PWXEG">Add To Cart</a>
+
+        <div class="product-description">
+          <p>Introducing our powerful yet gentle face cream, infused with the natural goodness of Rumex acetosa, a potent botanical extract that helps to brighten and even out your skin tone. This luxurious face cream is specially formulated to nourish, hydrate, and revitalize your skin, leaving it looking and feeling radiant and healthy.
+
+Rumex acetosa, also known as sheep's sorrel, is a natural skin lightening agent that helps to reduce the appearance of dark spots, hyperpigmentation, and other discolorations. It works by inhibiting the production of melanin, the pigment that gives our skin its color, resulting in a brighter and more even complexion. It's also rich in antioxidants, vitamins, and minerals, making it a highly effective ingredient for improving skin health and reducing signs of aging.
+
+Our Rumex acetosa face cream is enriched with other nourishing ingredients, including hyaluronic acid, squalane, and shea butter, to help hydrate and moisturize your skin, leaving it feeling soft, supple, and rejuvenated. The lightweight and non-greasy formula absorbs quickly into your skin, providing long-lasting hydration and protection without clogging your pores or leaving a heavy residue.
+
+This face cream is suitable for all skin types, including sensitive skin, and can be used both day and night. Simply apply a small amount to your face and neck, massaging gently until fully absorbed. With regular use, you'll notice a visible improvement in your skin's texture, tone, and radiance.
+
+Experience the power of nature with our Rumex acetosa face cream, and rediscover a brighter, more youthful-looking complexion that you can be proud of.</p>
+        </div>
+        
+
+      </div>
+    </div>
+  </main>
+
   <footer>
     <p>&copy; 2025 Natural Bonds META. All rights reserved.</p>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
